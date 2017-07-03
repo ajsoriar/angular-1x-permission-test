@@ -43,6 +43,32 @@ function( $scope, $rootScope, $http, PermRoleStore, PermPermissionStore ) {
 
     };
 
+    /*
+
+    //$stateChangePermissionStart
+
+	//Event broadcasted before start of authorizing.
+
+	$rootScope.$on('$stateChangePermissionStart', function(event, toState, toParams, options) { console.log("1") });
+
+	//$stateChangePermissionAccepted
+
+	//Event broadcasted when one of the permissions has been accepted and the state changes successfully.
+
+	$rootScope.$on('$stateChangePermissionAccepted', function(event, toState, toParams, options) { console.log("2") });
+
+	//$stateChangePermissionDenied
+
+	//Event broadcasted when the access to the target state is not granted.
+
+	$rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { console.log("3") });
+
+	// $rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { 
+	// 	alert("you need 'ADMIN' or 'MODERATOR' role !!!");
+	// });
+
+	*/
+
 }]);
 
 angular.element(document).ready(function() {
