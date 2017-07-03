@@ -1,0 +1,17 @@
+{
+    "name": "demo-dummy-back-end",
+    "private": true,
+    "version": "0.0.0",
+    "description": "Dummy backend",
+    "repository": "https://github.com/angular/angular-seed",
+    "license": "",
+
+    "devDependencies": {
+        "mysql": "~2.3.2",
+        "express": "4.x",
+        "mongodb": "*"
+    },
+    "scripts": {
+
+    }
+}
