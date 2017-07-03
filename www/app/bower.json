@@ -15,9 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.6.4"
-  },
-  "resolutions": {
-    "angular-ui-router": "0.3.1"
+    "angular": "1.6.4",
+    "angular-permission": "^5.3.2",
+    "angular-ui-router": "^1.0.5"
   }
 }
