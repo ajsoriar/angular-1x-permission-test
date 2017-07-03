@@ -1,0 +1,16 @@
+node_modules
+.tmp
+.sass-cache
+.project
+.tern-project
+.settings
+.idea
+OLD*
+app/bower_components
+bower_components
+.DS_Store
+_backend.conf.js
+_.*
+bin
+Debug
+ANDRES.userprefs
