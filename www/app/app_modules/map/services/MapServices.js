@@ -61,3 +61,5 @@ app.service('MapServices',
     }
 
 ]);
+
+console.log("FILE: MapServices.js was loaded.");

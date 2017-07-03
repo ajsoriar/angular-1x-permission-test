@@ -32,3 +32,5 @@ app.controller('MapController',['$scope', 'MapServices', function($scope, MapSer
     }
 
 }]);
+
+console.log("FILE: MapController.js was loaded.");
