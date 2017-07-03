@@ -24,9 +24,22 @@ app.config(['$routeProvider', '$httpProvider',
 }]);
 */
 
+
+/*
+$stateProvider
+  .state('userManagement', {
+    [...]
+    data: {
+      permissions: {
+        only: ['ADMIN','MODERATOR']
+      }
+    }
+  });
+*/
+
 app.config(function( $stateProvider, $urlRouterProvider ) {
 
-    console.log("a!");
+    console.log("app.config...");
     
     $urlRouterProvider.otherwise('/state1');
     
@@ -56,8 +69,16 @@ app.config(function( $stateProvider, $urlRouterProvider ) {
         .state('state-maps', {
               url: "/maps",
               templateUrl: "app/app_modules/map/views/Map.html",
-              controller: "MapController"
+              controller: "MapController",
+              data: {
+                permissions: {
+                  only: ['ADMIN','MODERATOR']
+                }
+              }
         });
+
+        // Because of a bug in ui-router, when using $urlStateProvider.otherwise we get an infinite digest loop error.
+        // check it out here: https://github.com/Narzerus/angular-permission/wiki/Installation-guide-for-ui-router#known-issues
 
 }); // closes $pruebaApp.config()
 

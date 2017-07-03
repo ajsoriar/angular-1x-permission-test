@@ -2,7 +2,11 @@
 
 //var app = angular.module('demoAppCtrl', [ 'ngRoute' ]); // OLD router
 
-var app = angular.module('ajsoriar-demoApp', [ 'ui.router' ]);
+var app = angular.module('ajsoriar-demoApp', [ 
+	'ui.router', 
+	'permission', 
+	'permission.ui' 
+]);
 
 app.controller('demoAppCtrl', ['$scope', '$rootScope', '$http',
 function( $scope, $rootScope, $http) {
@@ -28,5 +32,18 @@ $(document).ready(function() {
 
 });
 */
+
+
+
+app.run(function (PermPermissionStore) {
+
+	console.log("Define permissions!");
+
+
+    PermPermissionStore
+      .definePermission('seeDashboard', function () {
+        return true;
+      });
+  });
 
 console.log("FILE: app.js was loaded.");
