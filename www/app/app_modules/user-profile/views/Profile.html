@@ -1,0 +1,13 @@
+<p ng-init="init()" >
+	<h1>User profile</h1>
+</p>
+
+<div ng-show="isSaving">SAVING DATA</div>
+
+<form>
+	id:<input type="text" ng-model="userData.id" ng-disabled="isSaving"><br>
+	name:<input type="text" ng-model="userData.name" ng-disabled="isSaving"><br>
+	age:<input type="text" ng-model="userData.age"ng-disabled="isSaving" >
+</form> 
+
+<input type="button" ng-click="btnSaveUserData()" value="Save data"> This button sends data to Backend, it makes an HTTP POST request.

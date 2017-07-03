@@ -1,0 +1,23 @@
+{
+  "name": "try-angular-permission",
+  "homepage": "https://github.com/ajsoriar/angular-1x-permission-test",
+  "authors": [
+    "asr <ajsoriar@gmail.com>"
+  ],
+  "description": "Try angular permission",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.4"
+  },
+  "resolutions": {
+    "angular-ui-router": "0.3.1"
+  }
+}

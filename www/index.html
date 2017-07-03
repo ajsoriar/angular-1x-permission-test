@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ajsoriar-demoApp">
+
+	<head>
+    	<meta charset="utf-8">
+		<title>Basic Angular App</title>
+	</head>
+	
+	<body ng-controller="demoAppCtrl" ng-init="init()" ><!-- -->
+		
+		Hello world!
+
+		<!--
+		<a href="#/">Home</a>
+		<a href="#/tasks">Tasks</a>
+		<a href="#/profile">Profile</a>
+		-->
+
+		<a ui-sref="state1">State 1 - Home</a>
+    	<a ui-sref="state2">State 2 - Tasks</a>
+    	<a ui-sref="state-maps">State 3 - Map</a>
+
+		<!--<ng-view></ng-view>-->
+		<div ui-view></div>
+
+	</body>
+
+	<script src="app/bower_components/angular/angular.min.js"></script>
+    <script src="app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="app/app.js"></script>
+	<script src="app/router.js"></script>
+
+	<!--
+	<script src="app/app_modules/list-of-tasks/controller/TasksController.js"></script>
+	<script src="app/app_modules/list-of-tasks/services/TasksServices.js"></script>
+
+	<script src="app/app_modules/user-profile/controllers/ProfileController.js"></script>
+	<script src="app/app_modules/user-profile/services/ProfileServices.js"></script>
+	-->
+
+	<script src="app/app_modules/map/controllers/MapController.js"></script>
+	<script src="app/app_modules/map/services/MapServices.js"></script>
+
+</html>
