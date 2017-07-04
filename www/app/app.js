@@ -15,7 +15,7 @@ function( $scope, $rootScope, $http, PermRoleStore, PermPermissionStore ) {
 
     $scope.init = function(){
     	console.log("init() demoAppCtrl");
-    }
+    };
 
     $scope.removeAllRoleDefinitions = function() {
 
