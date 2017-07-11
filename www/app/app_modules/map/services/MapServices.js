@@ -50,7 +50,7 @@ app.service('MapServices',
 
                 }, function errorCallback(responseData) {
 
-                    request.deferred.reject(msg);
+                    request.deferred.resolve(responseData.data);
 
                 });
 

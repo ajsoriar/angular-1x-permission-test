@@ -16,8 +16,10 @@ app.controller('MapController',['$scope', 'MapServices', function($scope, MapSer
             console.log("response: ", response );
 
             $scope.listOfData = response;
+
+            
             console.log("$scope.listOfData: ", $scope.listOfData );
-            calculate();
+            if ( $scope.listOfData != null) calculate();
 
         }, function(error) {
         	console.log("ERROR: Error al descargar data de task1" );
