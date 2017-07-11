@@ -74,6 +74,27 @@ app.config(function( $stateProvider, $urlRouterProvider ) {
                 permissions: {
                   only: ['ADMIN','MODERATOR']
                 }
+              },
+              onEnter: function(title){
+
+                console.log("router.js, onEnter! ........!");
+
+                // if(title){ 
+                //   //... do something ... 
+                // }
+              },
+              onExit: function(title){
+                
+                console.log("router.js, onExit! ........!");
+
+                // if(title){ 
+                //   //... do something ... 
+                // }
+              },
+              resolve: { 
+                 title: function () { 
+                   return 'My Contacts' 
+                 } 
               }
         });
 
