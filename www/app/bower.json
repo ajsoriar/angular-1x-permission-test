@@ -17,6 +17,7 @@
   "dependencies": {
     "angular": "1.6.4",
     "angular-permission": "^5.3.2",
-    "angular-ui-router": "^1.0.5"
+    "angular-ui-router": "^1.0.5",
+    "ajsr-confirm": "*"
   }
 }

@@ -62,14 +62,130 @@ function( $scope, $rootScope, $http, PermRoleStore, PermPermissionStore ) {
 	//Event broadcasted when the access to the target state is not granted.
 
 	$rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { console.log("3") });
-
-	// $rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { 
-	// 	alert("you need 'ADMIN' or 'MODERATOR' role !!!");
-	// });
-
 	*/
 
+	$rootScope.$on('$stateChangePermissionStart', function(event, toState, toParams, options) { 
+
+		console.log("$stateChangePermissionStart!");
+
+	});
+
+	$rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { 
+
+
+		alert("you need 'ADMIN' or 'MODERATOR' role !!!");
+	});
+
+	$rootScope.$on('$stateChangePermissionAccepted', function(event, toState, toParams, options) { 
+
+		console.log("$stateChangePermissionAccepted!");
+
+	});
+
+
 }]);
+
+
+app.run(function($transitions, $rootScope, $state ) { // Migrate to: UI-Router 1.0 
+
+
+    $transitions.onStart({ }, function(transition) {
+
+        
+        // var SpinnerService = trans.injector().get('SpinnerService');
+        // SpinnerService.transitionStart();
+        // trans.promise.finally(SpinnerService.transitionEnd);
+        
+        console.log(" - $transitions.onStart()" ); // ------------> transition:", transition );
+
+        $rootScope.previousState = transition.from().name;
+        $rootScope.currentState = transition.to().name;
+
+        console.log(" - $rootScope.previousState:", $rootScope.previousState  );
+        console.log(" - $rootScope.currentState:", $rootScope.currentState  );
+
+    });
+
+
+    $transitions.onSuccess({}, function (transition) {
+
+        console.log(" - $transitions.onSuccess()" ); // ------------> transition:", transition );
+
+        // $rootScope.previousState = transition.from().name;
+        // $rootScope.currentState = transition.to().name;
+        // console.log(" - $rootScope.previousState:", $rootScope.previousState  );
+        // console.log(" - $rootScope.currentState:", $rootScope.currentState  );
+
+    });
+
+    $transitions.onError({}, function (transition) {
+
+    	console.log(" - $transitions.onError()" ); // ------------> transition:", transition );
+
+    	//alert("you need 'ADMIN' or 'MODERATOR' role !!!");
+
+
+    	console.log(" - transition:", transition );
+
+
+    	switch ( transition._error.type ){
+
+    		case 5: // The transition was ignored
+
+    			console.log( "(5) The transition was ignored" );
+
+    			break;
+
+    		case 6: //The transition errored
+
+    			console.log( "(6) The transition errored" );
+
+
+	        	$.ajsrConfirm({
+
+	                text: "Yes or no?",
+	                confirmButton: "OK",
+	                cancelButton : "Cancel",
+	                onConfirm: function() {
+
+	                    console.log("Confirm!");
+	                },
+	                onCancel: function() {
+
+	                    console.log("Cancel");
+	                }
+
+	            });
+
+    			break;
+
+    		default:
+
+    			console.log( "Some kind of error... transition._error.type:", transition._error.type );
+    	}
+
+    });
+
+    $transitions.onExit({}, function (transition) {
+
+    	console.log(" - $transitions.onExit()" );
+    });
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 angular.element(document).ready(function() {
 
@@ -92,7 +208,7 @@ var Session = {
 	}
 };
 
-app.run(function (PermPermissionStore, PermRoleStore ) {
+app.run(function (PermPermissionStore, PermRoleStore, $rootScope ) {
 
 	console.log("Define permissions and roles!");
 
@@ -143,7 +259,16 @@ app.run(function (PermPermissionStore, PermRoleStore ) {
 	    return window.Session.checkSession();
 	  });
 
+
+
+	//   $rootScope.$on('$stateChangePermissionDenied', function(event, toState, toParams, options) { 
+	// 	alert("you need 'ADMIN' or 'MODERATOR' role !!!");
+	// });
+
   });
+
+
+
 
 
 
